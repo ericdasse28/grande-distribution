@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_1=>" expression="i+1">
+  <variables name="row1.Code" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.Gencod" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.Long_Name" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.Short_Name" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.VAT_Code" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.Purchase_Price" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="row1.Nomenclature" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.SousFamilleDistri_Code" value="null" talendType="id_Integer" nullable="true"/>
+  <variables name="row1.FamilleDistri_Code" value="null" talendType="id_String" nullable="true"/>
+  <variables name="row1.Categorie_Code" value="null" talendType="id_String" nullable="true"/>
+</expression:EMFExpression>
