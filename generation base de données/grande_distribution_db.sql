@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `grande_distribution_db`.`Article` (
   `nomenclature_alternative` CHAR(10) NULL,
   `prix_achat` DOUBLE NULL,
   PRIMARY KEY (`id_article`),
-  UNIQUE INDEX `code_UNIQUE` (`ref_produit` ASC) VISIBLE)
+  UNIQUE INDEX `code_UNIQUE` (`ref_produit` ASC))
 ENGINE = InnoDB;
 
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `grande_distribution_db`.`Temps` (
   `code_jour_off` CHAR(1) NULL,
   `vacances_zone_a` TINYINT NULL,
   PRIMARY KEY (`id_date`),
-  UNIQUE INDEX `date_UNIQUE` (`date_enreg` ASC) VISIBLE)
+  UNIQUE INDEX `date_UNIQUE` (`date_enreg` ASC))
 ENGINE = InnoDB;
 
 
