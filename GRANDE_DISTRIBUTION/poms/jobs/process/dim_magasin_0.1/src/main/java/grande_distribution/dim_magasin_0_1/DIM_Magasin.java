@@ -260,6 +260,16 @@ public class DIM_Magasin implements TalendJob {
 		}
 	}
 
+	public void tDBConnection_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBConnection_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -300,12 +310,198 @@ public class DIM_Magasin implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tDBCommit_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDBCommit_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tDBConnection_1_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
 	public void tFileInputDelimited_1_onSubJobError(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
 
+	}
+
+	public void tDBCommit_1_onSubJobError(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
+				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public void tDBConnection_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBConnection_1_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBConnection_1 begin ] start
+				 */
+
+				ok_Hash.put("tDBConnection_1", false);
+				start_Hash.put("tDBConnection_1", System.currentTimeMillis());
+
+				currentComponent = "tDBConnection_1";
+
+				int tos_count_tDBConnection_1 = 0;
+
+				String properties_tDBConnection_1 = "noDatetimeStringSync=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+				if (properties_tDBConnection_1 == null || properties_tDBConnection_1.trim().length() == 0) {
+					properties_tDBConnection_1 += "rewriteBatchedStatements=true";
+				} else if (properties_tDBConnection_1 != null
+						&& !properties_tDBConnection_1.contains("rewriteBatchedStatements")) {
+					properties_tDBConnection_1 += "&rewriteBatchedStatements=true";
+				}
+
+				String url_tDBConnection_1 = "jdbc:mysql://" + "localhost" + ":" + "3306" + "/"
+						+ "grande_distribution_db" + "?" + properties_tDBConnection_1;
+				String dbUser_tDBConnection_1 = "root";
+
+				final String decryptedPassword_tDBConnection_1 = routines.system.PasswordEncryptUtil
+						.decryptPassword("ENC:[3wsOMnbk/woqdy5ZsU6GMg==]");
+				String dbPwd_tDBConnection_1 = decryptedPassword_tDBConnection_1;
+
+				java.sql.Connection conn_tDBConnection_1 = null;
+
+				String driverClass_tDBConnection_1 = "com.mysql.jdbc.Driver";
+				java.lang.Class jdbcclazz_tDBConnection_1 = java.lang.Class.forName(driverClass_tDBConnection_1);
+
+				conn_tDBConnection_1 = java.sql.DriverManager.getConnection(url_tDBConnection_1, dbUser_tDBConnection_1,
+						dbPwd_tDBConnection_1);
+
+				globalMap.put("conn_tDBConnection_1", conn_tDBConnection_1);
+				if (null != conn_tDBConnection_1) {
+
+					conn_tDBConnection_1.setAutoCommit(false);
+				}
+
+				globalMap.put("conn_tDBConnection_1", conn_tDBConnection_1);
+
+				globalMap.put("db_tDBConnection_1", "grande_distribution_db");
+
+				/**
+				 * [tDBConnection_1 begin ] stop
+				 */
+
+				/**
+				 * [tDBConnection_1 main ] start
+				 */
+
+				currentComponent = "tDBConnection_1";
+
+				tos_count_tDBConnection_1++;
+
+				/**
+				 * [tDBConnection_1 main ] stop
+				 */
+
+				/**
+				 * [tDBConnection_1 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBConnection_1";
+
+				/**
+				 * [tDBConnection_1 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBConnection_1 process_data_end ] start
+				 */
+
+				currentComponent = "tDBConnection_1";
+
+				/**
+				 * [tDBConnection_1 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBConnection_1 end ] start
+				 */
+
+				currentComponent = "tDBConnection_1";
+
+				ok_Hash.put("tDBConnection_1", true);
+				end_Hash.put("tDBConnection_1", System.currentTimeMillis());
+
+				/**
+				 * [tDBConnection_1 end ] stop
+				 */
+			} // end the resume
+
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tDBConnection_1:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk1", 0, "ok");
+			}
+
+			tFileInputDelimited_1Process(globalMap);
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBConnection_1 finally ] start
+				 */
+
+				currentComponent = "tDBConnection_1";
+
+				/**
+				 * [tDBConnection_1 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBConnection_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class row2Struct implements routines.system.IPersistableRow<row2Struct> {
@@ -3658,7 +3854,7 @@ public class DIM_Magasin implements TalendJob {
 
 				int rejectedCount_tDBOutput_1 = 0;
 
-				String tableName_tDBOutput_1 = "";
+				String tableName_tDBOutput_1 = "magasin";
 				boolean whetherReject_tDBOutput_1 = false;
 
 				java.util.Calendar calendar_tDBOutput_1 = java.util.Calendar.getInstance();
@@ -3669,41 +3865,11 @@ public class DIM_Magasin implements TalendJob {
 				long date_tDBOutput_1;
 
 				java.sql.Connection conn_tDBOutput_1 = null;
-				String dbProperties_tDBOutput_1 = "noDatetimeStringSync=true";
-				String url_tDBOutput_1 = null;
-				if (dbProperties_tDBOutput_1 == null || dbProperties_tDBOutput_1.trim().length() == 0) {
-					url_tDBOutput_1 = "jdbc:mysql://" + "localhost" + ":" + "3306" + "/" + "" + "?"
-							+ "rewriteBatchedStatements=true";
-				} else {
-					String properties_tDBOutput_1 = "noDatetimeStringSync=true";
-					if (!properties_tDBOutput_1.contains("rewriteBatchedStatements")) {
-						properties_tDBOutput_1 += "&rewriteBatchedStatements=true";
-					}
-
-					url_tDBOutput_1 = "jdbc:mysql://" + "localhost" + ":" + "3306" + "/" + "" + "?"
-							+ properties_tDBOutput_1;
-				}
-				String driverClass_tDBOutput_1 = "com.mysql.cj.jdbc.Driver";
-
-				String dbUser_tDBOutput_1 = "root";
-
-				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil
-						.decryptPassword("ENC:[3wsOMnbk/woqdy5ZsU6GMg==]");
-
-				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
-				java.lang.Class.forName(driverClass_tDBOutput_1);
-
-				conn_tDBOutput_1 = java.sql.DriverManager.getConnection(url_tDBOutput_1, dbUser_tDBOutput_1,
-						dbPwd_tDBOutput_1);
-
-				resourceMap.put("conn_tDBOutput_1", conn_tDBOutput_1);
-				conn_tDBOutput_1.setAutoCommit(false);
-				int commitEvery_tDBOutput_1 = 10000;
-				int commitCounter_tDBOutput_1 = 0;
+				conn_tDBOutput_1 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
 
 				int count_tDBOutput_1 = 0;
 
-				String insert_tDBOutput_1 = "INSERT INTO `" + ""
+				String insert_tDBOutput_1 = "INSERT INTO `" + "magasin"
 						+ "` (`code_etablissement`,`adresse`,`code_postal`,`ville`) VALUES (?,?,?,?)";
 				int batchSize_tDBOutput_1 = 100;
 				int batchSizeCounter_tDBOutput_1 = 0;
@@ -5287,30 +5453,6 @@ public class DIM_Magasin implements TalendJob {
 
 									batchSizeCounter_tDBOutput_1 = 0;
 								}
-								commitCounter_tDBOutput_1++;
-
-								if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
-
-									try {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : pstmt_tDBOutput_1.executeBatch()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0 : 1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-									} catch (java.sql.BatchUpdateException e) {
-										int countSum_tDBOutput_1 = 0;
-										for (int countEach_tDBOutput_1 : e.getUpdateCounts()) {
-											countSum_tDBOutput_1 += (countEach_tDBOutput_1 < 0 ? 0
-													: countEach_tDBOutput_1);
-										}
-										insertedCount_tDBOutput_1 += countSum_tDBOutput_1;
-										System.err.println(e.getMessage());
-
-									}
-									conn_tDBOutput_1.commit();
-									commitCounter_tDBOutput_1 = 0;
-
-								}
 
 								tos_count_tDBOutput_1++;
 
@@ -5545,15 +5687,6 @@ public class DIM_Magasin implements TalendJob {
 
 				}
 				resourceMap.put("statementClosed_tDBOutput_1", true);
-				if (commitCounter_tDBOutput_1 > 0) {
-
-					conn_tDBOutput_1.commit();
-
-				}
-
-				conn_tDBOutput_1.close();
-
-				resourceMap.put("finish_tDBOutput_1", true);
 
 				nb_line_deleted_tDBOutput_1 = nb_line_deleted_tDBOutput_1 + deletedCount_tDBOutput_1;
 				nb_line_update_tDBOutput_1 = nb_line_update_tDBOutput_1 + updatedCount_tDBOutput_1;
@@ -5606,6 +5739,17 @@ public class DIM_Magasin implements TalendJob {
 
 			} // end the resume
 
+			if (resumeEntryMethodName == null || globalResumeTicket) {
+				resumeUtil.addLog("CHECKPOINT", "CONNECTION:SUBJOB_OK:tFileInputDelimited_1:OnSubjobOk", "",
+						Thread.currentThread().getId() + "", "", "", "", "", "");
+			}
+
+			if (execStat) {
+				runStat.updateStatOnConnection("OnSubjobOk2", 0, "ok");
+			}
+
+			tDBCommit_1Process(globalMap);
+
 		} catch (java.lang.Exception e) {
 
 			TalendException te = new TalendException(e, currentComponent, globalMap);
@@ -5646,26 +5790,11 @@ public class DIM_Magasin implements TalendJob {
 
 				currentComponent = "tDBOutput_1";
 
-				try {
-					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
-						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_1")) != null) {
-							pstmtToClose_tDBOutput_1.close();
-						}
-					}
-				} finally {
-					if (resourceMap.get("finish_tDBOutput_1") == null) {
-						java.sql.Connection ctn_tDBOutput_1 = null;
-						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
-							try {
-								ctn_tDBOutput_1.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
-								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
-										+ sqlEx_tDBOutput_1.getMessage();
-								System.err.println(errorMessage_tDBOutput_1);
-							}
-						}
+				if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
+					java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
+					if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
+							.remove("pstmt_tDBOutput_1")) != null) {
+						pstmtToClose_tDBOutput_1.close();
 					}
 				}
 
@@ -5692,6 +5821,137 @@ public class DIM_Magasin implements TalendJob {
 		}
 
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDBCommit_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+		globalMap.put("tDBCommit_1_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+			// TDI-39566 avoid throwing an useless Exception
+			boolean resumeIt = true;
+			if (globalResumeTicket == false && resumeEntryMethodName != null) {
+				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
+				resumeIt = resumeEntryMethodName.equals(currentMethodName);
+			}
+			if (resumeIt || globalResumeTicket) { // start the resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDBCommit_1 begin ] start
+				 */
+
+				ok_Hash.put("tDBCommit_1", false);
+				start_Hash.put("tDBCommit_1", System.currentTimeMillis());
+
+				currentComponent = "tDBCommit_1";
+
+				int tos_count_tDBCommit_1 = 0;
+
+				/**
+				 * [tDBCommit_1 begin ] stop
+				 */
+
+				/**
+				 * [tDBCommit_1 main ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				java.sql.Connection conn_tDBCommit_1 = (java.sql.Connection) globalMap.get("conn_tDBConnection_1");
+
+				if (conn_tDBCommit_1 != null && !conn_tDBCommit_1.isClosed()) {
+
+					try {
+
+						conn_tDBCommit_1.commit();
+
+					} finally {
+
+						conn_tDBCommit_1.close();
+
+					}
+
+				}
+
+				tos_count_tDBCommit_1++;
+
+				/**
+				 * [tDBCommit_1 main ] stop
+				 */
+
+				/**
+				 * [tDBCommit_1 process_data_begin ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				/**
+				 * [tDBCommit_1 process_data_begin ] stop
+				 */
+
+				/**
+				 * [tDBCommit_1 process_data_end ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				/**
+				 * [tDBCommit_1 process_data_end ] stop
+				 */
+
+				/**
+				 * [tDBCommit_1 end ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				ok_Hash.put("tDBCommit_1", true);
+				end_Hash.put("tDBCommit_1", System.currentTimeMillis());
+
+				/**
+				 * [tDBCommit_1 end ] stop
+				 */
+			} // end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent, globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			runStat.stopThreadStat();
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDBCommit_1 finally ] start
+				 */
+
+				currentComponent = "tDBCommit_1";
+
+				/**
+				 * [tDBCommit_1 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDBCommit_1_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -5887,14 +6147,14 @@ public class DIM_Magasin implements TalendJob {
 
 		try {
 			errorCode = null;
-			tFileInputDelimited_1Process(globalMap);
+			tDBConnection_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tFileInputDelimited_1) {
-			globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tDBConnection_1) {
+			globalMap.put("tDBConnection_1_SUBPROCESS_STATE", -1);
 
-			e_tFileInputDelimited_1.printStackTrace();
+			e_tDBConnection_1.printStackTrace();
 
 		}
 
@@ -5930,11 +6190,24 @@ public class DIM_Magasin implements TalendJob {
 
 	// only for OSGi env
 	public void destroy() {
+		closeSqlDbConnections();
 
+	}
+
+	private void closeSqlDbConnections() {
+		try {
+			Object obj_conn;
+			obj_conn = globalMap.remove("conn_tDBConnection_1");
+			if (null != obj_conn) {
+				((java.sql.Connection) obj_conn).close();
+			}
+		} catch (java.lang.Exception e) {
+		}
 	}
 
 	private java.util.Map<String, Object> getSharedConnections4REST() {
 		java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
+		connections.put("conn_tDBConnection_1", globalMap.get("conn_tDBConnection_1"));
 
 		return connections;
 	}
@@ -6050,6 +6323,6 @@ public class DIM_Magasin implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 178864 characters generated by Talend Open Studio for Data Integration on the
- * April 9, 2020 at 3:49:25 PM CEST
+ * 185433 characters generated by Talend Open Studio for Data Integration on the
+ * April 9, 2020 at 5:54:14 PM CEST
  ************************************************************************************************/

@@ -12,6 +12,9 @@
     <module>code/routines</module>
     <module>jobs/process/dim_article_0.1</module>
     <module>jobs/process/dim_magasin_0.1</module>
+    <module>jobs/process/dim_temps_0.1</module>
+    <module>jobs/process/fait_ventes_0.1</module>
+    <module>jobs/process/dim_nomenclature_0.1</module>
   </modules>
   <properties>
     <talend.project.name>GRANDE_DISTRIBUTION</talend.project.name>

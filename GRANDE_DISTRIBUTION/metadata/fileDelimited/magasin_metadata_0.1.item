@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
   <TalendMetadata:DelimitedFileConnection xmi:id="_YAd34HphEeqWJbnWuWuNlQ" name="magasin_metadata" dataPackage="_YAee8HphEeqWJbnWuWuNlQ" Server="Localhost 127.0.0.1" FilePath="C:/Users/deric/Documents/Formation DTA Ingénierie/Projet magasin distribution/Sujet/données/MAGASINS.txt" Encoding="UTF-8" FieldSeparatorValue="&quot;\t&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true" FieldSeparatorType="Tabulation"/>
   <orgomg.cwm.resource.record:RecordFile xmi:id="_YAee8HphEeqWJbnWuWuNlQ" name="default" dataManager="_YAd34HphEeqWJbnWuWuNlQ">
-    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_YAee8XphEeqWJbnWuWuNlQ" id="_Bd6Q8HphEeqWJbnWuWuNlQ" label="magasin_metadata">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_YAee8XphEeqWJbnWuWuNlQ" id="_Bd6Q8HphEeqWJbnWuWuNlQ" label="magasin_schema">
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YAee8nphEeqWJbnWuWuNlQ" label="ZIM_ETABLISSEMENT" length="3" talendType="id_String" key="true" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YAee83phEeqWJbnWuWuNlQ" label="ZIM_NUMEROUPSUD" length="5" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
       <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_YAee9HphEeqWJbnWuWuNlQ" label="ZIM_NUMEROMISTRAL" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
