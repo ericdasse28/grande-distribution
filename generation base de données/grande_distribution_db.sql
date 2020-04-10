@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `grande_distribution_db`.`Fait_Ventes` (
   `code_client` CHAR(1) NULL,
   `code_tva` VARCHAR(2) NULL,
   `prix_achat` DOUBLE NULL,
-  `quantite` INT NULL,
+  `quantite` FLOAT NULL,
   `prix_vente` DOUBLE NULL,
   PRIMARY KEY (`id_vente`))
 ENGINE = InnoDB;
