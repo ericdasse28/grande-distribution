@@ -43,10 +43,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `grande_distribution_db`.`Magasin` (
   `code_etablissement` CHAR(4) NOT NULL,
+  `libelle` VARCHAR(30) NULL,
   `adresse` VARCHAR(45) NULL,
   `code_postal` VARCHAR(5) NULL,
   `ville` VARCHAR(45) NULL,
-  `num_mistral` CHAR(4) NULL,
   PRIMARY KEY (`code_etablissement`))
 ENGINE = InnoDB;
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `grande_distribution_db`.`Fait_Ventes` (
   `num_ticket` CHAR(10) NOT NULL,
   `id_date_vente` CHAR(8) NULL,
   `ref_produit` VARCHAR(13) NULL,
-  `code_magasin` CHAR(3) NULL,
+  `code_magasin` CHAR(4) NULL,
   `heure_vente` CHAR(4) NULL,
   `department_code` VARCHAR(2) NULL,
   `description` VARCHAR(45) NULL,
