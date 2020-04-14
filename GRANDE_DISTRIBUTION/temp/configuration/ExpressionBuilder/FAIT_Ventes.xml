@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<expression:EMFExpression xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore" id="tMap_3=>" expression="cle_art_verifie.num_ticket + cle_art_verifie.id_date_recu + cle_art_verifie.code_magasin + cle_art_verifie.gencod">
+  <variables name="cle_art_verifie.num_ticket" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.id_date_recu" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.heure_vente" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_client" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_departement" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.PLU_Fonction" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.description" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.quantite" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.prix_vente" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.pos_id" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_caissier" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.nom_caissier" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_parution" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_tva" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.num_commande_recu" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_magasin" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.code_interne" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.carte_fidelite" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.pourcentage_reduction" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.sep19" value="null" talendType="id_Character" nullable="true"/>
+  <variables name="cle_art_verifie.montant_reduction" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.function_code" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.num_ticket_restaurant" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.niveau_prix" value="null" talendType="id_String" nullable="true"/>
+  <variables name="cle_art_verifie.poids_vendu" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.prix_achat" value="null" talendType="id_Float" nullable="true"/>
+  <variables name="cle_art_verifie.gencod" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.lb_date" value="null" talendType="id_Date"/>
+  <variables name="temps.id_date" value="null" talendType="id_String"/>
+  <variables name="temps.jour" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.code_mois" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.mois" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.trimestre" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.semestre" value="null" talendType="id_String" nullable="true"/>
+  <variables name="temps.annee" value="null" talendType="id_Date" nullable="true"/>
+  <variables name="" value="null" talendType="id_String"/>
+</expression:EMFExpression>
